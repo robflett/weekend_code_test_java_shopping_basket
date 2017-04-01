@@ -24,6 +24,9 @@ public class ItemTest {
         assertEquals(69, item1.getPrice(), 0.001);
     }
 
-    
+    @Test
+    public void testGetQuantity(){
+        assertEquals(2, item1.getQuantity());
+    }
 
 }
