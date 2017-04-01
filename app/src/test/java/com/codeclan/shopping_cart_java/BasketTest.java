@@ -12,8 +12,9 @@ public class BasketTest {
     @Before
     public void before(){}
 
-    ArrayList basket = new ArrayList();
+
     Item item1 = new Item("Milk", 69, 2);
+    ArrayList basket = new ArrayList();
 
 
     @Test
@@ -27,6 +28,15 @@ public class BasketTest {
         basket.add(item1);
         basket.add(item2);
         assertEquals(2, basket.size());
+    }
+
+    @Test
+    public void testRemoveItem(){
+        Item item2 = new Item("Bread", 140, 1);
+        basket.add(item1);
+        basket.add(item2);
+        basket.remove(item2);
+        assertEquals(1, basket.size());
     }
 
 }
