@@ -12,21 +12,21 @@ public class BasketTest {
     @Before
     public void before(){}
 
-//    Item[] basket = new Item[10];
     ArrayList basket = new ArrayList();
     Item item1 = new Item("Milk", 69, 2);
 
 
     @Test
     public void testGetArrayLength()  {
-        basket.add(item1);
-        assertEquals(1, basket.size());
+        assertEquals(0, basket.size());
     }
 
-//    @Test
-//    public void testAddtoArrayList(){
-//        basket.
-//
-//    }
+    @Test
+    public void testAddtoArrayList(){
+        Item item2 = new Item("Bread", 140, 1);
+        basket.add(item1);
+        basket.add(item2);
+        assertEquals(2, basket.size());
+    }
 
 }
