@@ -18,9 +18,16 @@ public class Basket {
     }
 
 
-    public void addItem(Item item){
+    public void add(Item item){
         basket.add(item);
     }
 
+    public void remove(Item item){
+        basket.remove(item);
+    }
+
+    public void clearAll(){
+        
+    }
 
 }

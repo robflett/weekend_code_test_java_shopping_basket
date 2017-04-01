@@ -39,4 +39,13 @@ public class BasketTest {
         assertEquals(1, basket.size());
     }
 
+    @Test
+    public void testClearItems(){
+        Item item2 = new Item("Bread", 140, 1);
+        basket.add(item1);
+        basket.add(item2);
+        basket.clear();
+        assertEquals(0, basket.size());
+    }
+
 }
