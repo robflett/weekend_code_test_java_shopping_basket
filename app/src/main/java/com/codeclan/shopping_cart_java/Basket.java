@@ -24,7 +24,7 @@ public class Basket {
     }
 
 
-    public ArrayList<Item> addItem(String item_name, double price, int quantity, boolean bogof){
+    public double addItem(String item_name, double price, int quantity, boolean bogof){
         Item product = new Item(item_name, price, quantity, bogof);
 
 //        if (quantity == 2) && bogof == true {price * 0.5;}
@@ -47,7 +47,7 @@ public class Basket {
         itemCount += quantity;
         basket.add(product);
 
-        return basket;
+        return discountedPrice;
     }
 
 //    public int checkout(){
