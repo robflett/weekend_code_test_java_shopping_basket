@@ -22,8 +22,11 @@ public class Basket {
     }
 
 
-    public void addItem(Item item){
-        basket.add(item);
+    public void addItem(String item_name, double price, int quantity){
+        Item product = new Item(item_name, price, quantity);
+        totalPrice += (price * quantity);
+        itemCount += quantity;
+        basket.add(product);
     }
 
     public void removeItem(){
@@ -34,4 +37,19 @@ public class Basket {
         basket.clear();
     }
 
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public int getItemCount() {
+        return itemCount;
+    }
+
+    public void setItemCount(int itemCount) {
+        this.itemCount = itemCount;
+    }
 }

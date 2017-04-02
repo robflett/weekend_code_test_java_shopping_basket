@@ -9,7 +9,6 @@ import static org.junit.Assert.assertEquals;
 
 public class BasketTest {
 
-    Item item1;
     Basket basket;
 
     @Before
@@ -17,7 +16,6 @@ public class BasketTest {
 
         basket = new Basket();
 
-        item1 = new Item("Milk", 69, 2);
     }
 
     @Test
@@ -26,27 +24,38 @@ public class BasketTest {
     }
 
     @Test
-    public void testAddtoArrayList(){
-        Item item2 = new Item("Bread", 140, 1);
-        basket.addItem(item1);
-        basket.addItem(item2);
+    public void testAddtoArrayListSize(){
+        basket.addItem("Milk", 69, 2);
+        basket.addItem("Bread", 140, 1);
         assertEquals(2, basket.basketSize());
     }
 
     @Test
+    public void testAddtoArrayListTotalPrice(){
+        basket.addItem("Milk", 69, 2);
+        basket.addItem("Bread", 140, 1);
+        assertEquals(278, basket.getTotalPrice(), 0.0001);
+    }
+
+    @Test
+    public void testAddtoArrayListQuanitity(){
+        basket.addItem("Milk", 69, 2);
+        basket.addItem("Bread", 140, 1);
+        assertEquals(3, basket.getItemCount());
+    }
+
+    @Test
     public void testRemoveItem(){
-        Item item2 = new Item("Bread", 140, 1);
-        basket.addItem(item1);
-        basket.addItem(item2);
+        basket.addItem("Milk", 69, 2);
+        basket.addItem("Bread", 140, 1);
         basket.removeItem();
         assertEquals(1, basket.basketSize());
     }
 
     @Test
     public void testClearItems(){
-        Item item2 = new Item("Bread", 140, 1);
-        basket.addItem(item1);
-        basket.addItem(item2);
+        basket.addItem("Milk", 69, 2);
+        basket.addItem("Bread", 140, 1);
         basket.clearAllItems();
         assertEquals(0, basket.basketSize());
     }
