@@ -9,6 +9,7 @@ public class Basket {
     private double discountedPrice;
     private int itemCount;
     private ArrayList<Item> basket;
+    private Customer customer;
 
 
 
@@ -16,7 +17,8 @@ public class Basket {
         this.totalPrice = 0.0;
         this.itemCount = 0;
         this.discountedPrice = 0;
-        this.basket = new ArrayList<Item>();
+        this.basket = new ArrayList<>();
+        this.customer = new Customer(name, loyalty);
     }
 
     public int basketSize(){
@@ -42,6 +44,10 @@ public class Basket {
 
         if (totalPrice >= 20000){
             discountedPrice = totalPrice * 0.10;
+        }
+
+        if (customer.isLoyalty() == true){
+            discountedPrice = totalPrice * 0.02;
         }
 
         itemCount += quantity;
