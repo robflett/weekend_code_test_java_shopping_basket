@@ -11,23 +11,27 @@ public class Basket {
 
 
 
-    public Basket(double totalPrice, int itemCount, ArrayList<Item> basket) {
-        this.totalPrice = totalPrice;
-        this.itemCount = itemCount;
-        this.basket = basket;
+    public Basket() {
+        this.totalPrice = 0.0;
+        this.itemCount = 0;
+        this.basket = new ArrayList<Item>();
+    }
+
+    public int basketSize(){
+        return basket.size();
     }
 
 
-    public void add(Item item){
+    public void addItem(Item item){
         basket.add(item);
     }
 
-    public void remove(Item item){
-        basket.remove(item);
+    public void removeItem(){
+        basket.remove(0);
     }
 
-    public void clearAll(){
-        
+    public void clearAllItems(){
+        basket.clear();
     }
 
 }

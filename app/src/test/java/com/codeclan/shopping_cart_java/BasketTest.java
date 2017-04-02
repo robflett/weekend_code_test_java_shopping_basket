@@ -9,43 +9,46 @@ import static org.junit.Assert.assertEquals;
 
 public class BasketTest {
 
+    Item item1;
+    Basket basket;
+
     @Before
-    public void before(){}
+    public void before() {
 
+        basket = new Basket();
 
-    Item item1 = new Item("Milk", 69, 2);
-    ArrayList basket = new ArrayList();
-
+        item1 = new Item("Milk", 69, 2);
+    }
 
     @Test
     public void testGetArrayLength()  {
-        assertEquals(0, basket.size());
+        assertEquals(0, basket.basketSize());
     }
 
     @Test
     public void testAddtoArrayList(){
         Item item2 = new Item("Bread", 140, 1);
-        basket.add(item1);
-        basket.add(item2);
-        assertEquals(2, basket.size());
+        basket.addItem(item1);
+        basket.addItem(item2);
+        assertEquals(2, basket.basketSize());
     }
 
     @Test
     public void testRemoveItem(){
         Item item2 = new Item("Bread", 140, 1);
-        basket.add(item1);
-        basket.add(item2);
-        basket.remove(item2);
-        assertEquals(1, basket.size());
+        basket.addItem(item1);
+        basket.addItem(item2);
+        basket.removeItem();
+        assertEquals(1, basket.basketSize());
     }
 
     @Test
     public void testClearItems(){
         Item item2 = new Item("Bread", 140, 1);
-        basket.add(item1);
-        basket.add(item2);
-        basket.clear();
-        assertEquals(0, basket.size());
+        basket.addItem(item1);
+        basket.addItem(item2);
+        basket.clearAllItems();
+        assertEquals(0, basket.basketSize());
     }
 
 }
