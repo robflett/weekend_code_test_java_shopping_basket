@@ -22,15 +22,17 @@ public class Basket {
     }
 
 
-    public void addItem(String item_name, double price, int quantity, boolean bogof){
+    public ArrayList<Item> addItem(String item_name, double price, int quantity, boolean bogof){
         Item product = new Item(item_name, price, quantity, bogof);
 
-//        if (quantity == 2)  price * 0.5;
+//        if (quantity == 2)  basket.setPrice() * 0.5;
 //          add discounted variable in constructor?
 
         totalPrice += (price * quantity);
         itemCount += quantity;
         basket.add(product);
+
+        return basket;
     }
 
 //    public int checkout(){
