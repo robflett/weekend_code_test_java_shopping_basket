@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Basket {
 
     private double totalPrice;
+    private double discountedPrice;
     private int itemCount;
     private ArrayList<Item> basket;
 
@@ -14,6 +15,7 @@ public class Basket {
     public Basket() {
         this.totalPrice = 0.0;
         this.itemCount = 0;
+        this.discountedPrice = 0;
         this.basket = new ArrayList<Item>();
     }
 
@@ -25,10 +27,23 @@ public class Basket {
     public ArrayList<Item> addItem(String item_name, double price, int quantity, boolean bogof){
         Item product = new Item(item_name, price, quantity, bogof);
 
-//        if (quantity == 2)  basket.setPrice() * 0.5;
-//          add discounted variable in constructor?
+//        if (quantity == 2) && bogof == true {price * 0.5;}
+//        switch(finalCost){
+//
+//            case quantity = 2: case bogof = true:
+//                discountedPrice = price * 0.5;
+//                break;
+//        }
+        if (quantity == 2 && bogof == true) {
+            discountedPrice = price * 0.5;
+        }
 
         totalPrice += (price * quantity);
+
+        if (totalPrice >= 20000){
+            discountedPrice = totalPrice * 0.10;
+        }
+
         itemCount += quantity;
         basket.add(product);
 
@@ -38,6 +53,8 @@ public class Basket {
 //    public int checkout(){
 //
 //    }
+
+
 
     public void removeItem(){
         basket.remove(0);
