@@ -6,11 +6,22 @@ public class Item {
     private String item_name;
     private double price;
     private int quantity;
+    private boolean bogof;
+//    use this boolean to calculate if the item can be divided by 2 for the bogof promotion.
 
-    public Item(String item_name, double price, int quantity) {
+    public Item(String item_name, double price, int quantity, boolean bogof) {
         this.item_name = item_name;
         this.price = price;
         this.quantity = quantity;
+        this.bogof = bogof;
+    }
+
+    public boolean isBogof() {
+        return bogof;
+    }
+
+    public void setBogof(boolean bogof) {
+        this.bogof = bogof;
     }
 
     public String getItem_name() {

@@ -11,8 +11,13 @@ public class ItemTest {
     @Before
     public void before(){}
 
-        Item item1 = new Item("Milk", 69, 2);
+        Item item1 = new Item("Milk", 69, 2, true);
 
+
+    @Test
+    public void testIsPartofBogof()  {
+        assertEquals(true, item1.isBogof());
+    }
 
     @Test
     public void testGetItem_Name()  {
